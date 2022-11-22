@@ -1275,8 +1275,10 @@ var userArray = [
 function LoadUser() {
      if(localStorage.getItem('user')===null) {
           localStorage.setItem('user',JSON.stringify(userArray));
-       
       }
+     else{
+          userArray =  JSON.parse(localStorage.getItem('user'))
+     }
 }
 
 function createnewuser(fullname, password , email)

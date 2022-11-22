@@ -153,6 +153,7 @@ function editUser(username) {
     editFlag = true;
     var position = 0 ;
     var userDict = JSON.parse(localStorage.getItem('user'));
+
     for (let i = 0; i < userDict.length; i++)
         if (userDict[i].username == username) {
             position = i ;
@@ -163,16 +164,14 @@ function editUser(username) {
     document.getElementById('pass-box-1').innerHTML = 'New password:' ;
     document.getElementById('name-box-1').innerHTML = 'New email:' ;
     document.getElementById('undo-but').style.display = 'block' ;
+    document.getElementById('userBox').value = userDict[position].username;
+    document.getElementById('passBox').value = userDict[position].password;
+    document.getElementById('nameBox').value = userDict[position].email;
     document.getElementById('add-nick-but').addEventListener("click", () => {
         var userDict = JSON.parse(localStorage.getItem('user'));
         var username = document.getElementById('userBox').value;
         var password = document.getElementById('passBox').value;
         var email = document.getElementById('nameBox').value;
-        for (var j = 0; j < userDict.length; j++) 
-            if (userDict[j].username == username) {
-                alert('This username is already existed.')
-                return;
-            }
         if (username != '') 
             userDict[position].username = username ;
             
@@ -207,7 +206,7 @@ function addNick() {
         var userDict = JSON.parse(localStorage.getItem('user'));
         var username  = document.getElementById('userBox').value;
         var password = document.getElementById('passBox').value;
-        var fullname = document.getElementById('nameBox').value;
+        var email = document.getElementById('nameBox').value;
             for (var i = 0; i < userDict.length; i++) {
                 if (userDict[i].username == username) {
                     alert('This username is already existed.')
@@ -233,7 +232,7 @@ function addNick() {
         var today = new Date();
         var datesignup = String(today.getDate())+"/"+String(today.getMonth())+"/"+String(today.getFullYear());
         var userType = "Customer" ;
-        var temp = {username, password, fullname, datesignup, userType};
+        var temp = {username, password, email, datesignup, userType};
         userDict.push(temp);
         localStorage.setItem('user', JSON.stringify(userDict));
         displayUserDict();
