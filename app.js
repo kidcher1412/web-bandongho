@@ -1510,7 +1510,7 @@ function timKiem() {
          alert('Vui lòng nhập từ khoá để tìm kiếm!');
      }
  }
- 
+ let testthong;
  function timKiemNangCao() {
      let searchValue = node.value;
      node.value = "";
@@ -1563,11 +1563,8 @@ function timKiem() {
              continue;
           dem++
          tmp.push(product_sort[i])
-         
-         
-              
-          
      }
+     testthong = tmp
      if(dem==0){
           document.getElementsByClassName('search-top')[0].style.display = 'none';
           document.getElementsByClassName('search-content')[0].style.display = 'none';
@@ -1585,7 +1582,9 @@ function timKiem() {
          console.log(dem)
            
      }
-
+function gettestListseach(){
+     return testthong;
+}
 
 // BILL --------------------------------------------------------------------------------------------------------
 
