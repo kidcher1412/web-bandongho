@@ -1587,7 +1587,8 @@ function gettestListseach(){
      for(let i = 0; i<testthong.length;i++){
           listreturn.push(testthong[i].ten)
      }
-     return listreturn;
+     testthong = [];
+     testthong = listreturn;
 }
 
 // BILL --------------------------------------------------------------------------------------------------------
