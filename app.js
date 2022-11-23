@@ -1331,7 +1331,7 @@ function checkLogin(email , password){
           
 
              if((userArray[i].email == email) && (userArray[i].password == password)){
-               if((userArray[i].email == 'admin@gmail.com') && (userArray[i].password == "adminsgu")){
+               if(userArray[i].userType == "Admin"){
                     alert('Chào Admin')
                     modal.classList.remove('active')
                        modalLogin.style.display = 'none'
