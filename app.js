@@ -1583,7 +1583,11 @@ function timKiem() {
            
      }
 function gettestListseach(){
-     return testthong;
+     let listreturn =[];
+     for(let i = 0; i<testthong.length;i++){
+          listreturn.push(testthong[i].ten)
+     }
+     return listreturn;
 }
 
 // BILL --------------------------------------------------------------------------------------------------------
