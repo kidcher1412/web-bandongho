@@ -18,6 +18,12 @@
    .navbar-wrapper {
         
    }
+   .hero-section {
+    width: 100vw;
+    }
+    .navbar {
+        width: 100vw;
+    }
 
 
    .openmobile {
@@ -138,9 +144,14 @@
 @media only screen and (max-width: 740px) {
   .logo img{ 
       height: 15px;
-      transform: translateY(-9px);
+      width: 78px;
+      
   }
-
+  .logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   .navbar-icon-item a {
     color : white;
     font-size: 1.2rem;
@@ -213,5 +224,20 @@
      .discount{
          font-size: 0.7rem;
      }
-  
+     .modal-login {
+        position: relative;
+        display: none;
+        z-index: 1000;
+        position: fixed;
+        width: 30%;
+        height: fit-content;
+        background-color: white;
+        min-width: 400px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .social-fixed{
+        display: none;
+    }
 }

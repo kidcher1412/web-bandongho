@@ -303,6 +303,8 @@ function TopSale() {
      document.getElementById('PageContact').style.display = 'none'
      document.getElementById('PageCheckout').style.display = 'none'
      document.getElementById('search').style.display = 'none'
+     document.querySelector(".bx.bxs-down-arrow.navbar-menu-icon").classList.remove("active")
+     document.querySelector(".navbar-sub-menu").classList.remove("active")
 
 }
 
@@ -323,6 +325,8 @@ function Male(){
      document.getElementById('PageCheckout').style.display = 'none'
      document.getElementById('search').style.display = 'none'
      document.getElementById('male').scrollIntoView()
+     document.querySelector(".bx.bxs-down-arrow.navbar-menu-icon").classList.remove("active")
+     document.querySelector(".navbar-sub-menu").classList.remove("active")
 }
 
 
@@ -343,7 +347,8 @@ function Female(){
      document.getElementById('PageCheckout').style.display = 'none'
      document.getElementById('search').style.display = 'none'
      document.getElementById('female').scrollIntoView()
-
+     document.querySelector(".bx.bxs-down-arrow.navbar-menu-icon").classList.remove("active")
+     document.querySelector(".navbar-sub-menu").classList.remove("active")
 }
 
 function Subarchitecture(){
@@ -363,7 +368,8 @@ function Subarchitecture(){
      document.getElementById('PageCheckout').style.display = 'none'
      document.getElementById('search').style.display = 'none'
      document.getElementById('sub-architecture').scrollIntoView()
-
+     document.querySelector(".bx.bxs-down-arrow.navbar-menu-icon").classList.remove("active")
+     document.querySelector(".navbar-sub-menu").classList.remove("active")
 }
 
 
@@ -1164,7 +1170,7 @@ function ModalCart(anh,ten,gia){
 
      <td width= "170px">
             <h3 id="price" class="price-new">
-                ${gia}
+                ${gia.toLocaleString("vi-VN", { useGrouping: true })}
             </h3>
 
      </td>
@@ -1176,14 +1182,13 @@ function ModalCart(anh,ten,gia){
 
       <td width ="170px">
               <h3 id="price-total" class="price-new text-center price-modal">
-                 ${gia}
+                 ${gia.toLocaleString("vi-VN", { useGrouping: true })}
               </h3>
       </td>
  
      `;
 
      
-    
      cartList.appendChild(cartRow)
      updateCart()
      
@@ -1486,7 +1491,9 @@ node.addEventListener("keyup", function (event) {
         timKiem();
     }
 });
-
+document.querySelector(".bx-search-alt").addEventListener("click", function (event) {
+     timKiem()
+  });
 
 //Xu ly nhan icon tim kiem
 function timKiem() {
