@@ -28,6 +28,7 @@
 
    .openmobile {
         display: block;
+        transform: rotate(180deg);
    }
 
 
@@ -135,7 +136,9 @@
      .sub-architecture-content-left {
          width: 100%;
      }
-
+     .navbar-icon-item input {
+        width: 160px;
+    }
 }
 
 
@@ -143,8 +146,8 @@
 
 @media only screen and (max-width: 740px) {
   .logo img{ 
-      height: 15px;
-      width: 78px;
+      height: 64px;
+      width: 125px;
       
   }
   .logo{
@@ -229,15 +232,34 @@
         display: none;
         z-index: 1000;
         position: fixed;
-        width: 30%;
+        width: 80vw;
         height: fit-content;
         background-color: white;
-        min-width: 400px;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
     .social-fixed{
         display: none;
+    }
+    .product-list-item {
+        width: 83vw;
+        position: relative;
+        background-repeat: no-repeat;
+        height: 400px;
+        background-position: center;
+        background-size: cover;
+        cursor: pointer;
+        transition: 0.3s linear;
+    }
+    .infomation-content-item {
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 80vw;
+    }
+    .navbar-icon-item input {
+        width: 100px;
     }
 }

@@ -178,7 +178,7 @@ openCart.addEventListener('click', function(){
 var slideIndex = 0;
 showSlide();
 
-var timer = setInterval(showSlide, 3000);
+var timer = setInterval(showSlide, 30000);
 var slideContainer = document.querySelector('.hero-section')
 var slideControl = document.querySelector('.slide-control')
 
@@ -191,11 +191,11 @@ slideControl.onmouseover = function(){
 }
 
 slideContainer.onmouseleave = function(){
-  timer = setInterval(showSlide,3000);
+  timer = setInterval(showSlide,30000);
 }
 
 slideControl.onmouseleave = function(){
-  timer = setInterval(showSlide, 3000);
+  timer = setInterval(showSlide, 30000);
 }
 
 function showSlide(){
@@ -1182,7 +1182,7 @@ function ModalCart(anh,ten,gia){
 
       <td width ="170px">
               <h3 id="price-total" class="price-new text-center price-modal">
-                 ${gia.toLocaleString("vi-VN", { useGrouping: true })}
+               ${gia.toLocaleString("vi-VN", { useGrouping: true })}
               </h3>
       </td>
  
@@ -1235,8 +1235,8 @@ function updateCart() {
                          total = (total + (price * quantity))
                         
      
-                    
-                         pricetotal.innerHTML = `${((price *quantity)*1000000).toFixed(0)}đ`
+
+                         pricetotal.innerHTML = `${((price *quantity)*1000000).toLocaleString("vi-VN", { useGrouping: true })}đ`
                     
                }
               
@@ -1247,7 +1247,7 @@ function updateCart() {
      
 
      document.querySelector(".sum-total h3").innerHTML = `${x}đ `
-     document.getElementById("number-total").innerHTML = `${x}đ `
+     document.getElementById("number-total").innerHTML = `${x.toLocaleString("vi-VN", { useGrouping: true })}đ `
     document.getElementsByClassName('cart-info')[0].innerHTML = cartRows.length
     document.getElementById('length-num').innerHTML = cartRows.length
 
@@ -1324,7 +1324,67 @@ function createnewuser(fullname, password , email)
 	localStorage.setItem('user',JSON.stringify(userArray));
 }
 
+function checkLogin1(email , password){
+     var flag
+     var userArray = JSON.parse(localStorage.getItem('user'));
 
+     for(var i=0; i < userArray.length; i++){
+          
+
+             if((userArray[i].email == email) && (userArray[i].password == password)){
+               if(userArray[i].userType == "Admin"){
+                    modal.classList.remove('active')
+                       modalLogin.style.display = 'none'
+                       account.style.display = 'block'
+                       document.querySelector('.account span').innerHTML = userArray[i].username
+                       iconUser.style.display = 'none'
+                       document.querySelector('.opencart a').style.display = 'none'
+                       document.querySelector('.admin').style.display = 'block' 
+                       document.getElementsByClassName('cart-info')[0].style.display = 'none'
+                       
+                       flag = 0;
+                       break
+               }else {
+
+                    modal.classList.remove('active')
+                    modalLogin.style.display = 'none'
+                    account.style.display = 'block'
+                    document.querySelector('.account span').innerHTML = userArray[i].username
+                    iconUser.style.display = 'none'
+                    document.querySelector('.out-account').style.display = 'block'
+                    var makh
+                    var email1 = document.getElementsByClassName('emailkh1')[0].value
+                     console.log(email1)
+                    var email2  = document.getElementsByClassName('emailkh2')[0].value
+                     console.log(email2)
+                    var userArray = JSON.parse(localStorage.getItem('user'));
+                        for(var i=0; i<userArray.length; i++){
+                 
+                         if(userArray[i].email == email2 || userArray[i].email == email1){
+                           makh = userArray[i].makh
+                              break
+                             }      
+                
+                     
+            
+                        } 
+                   InnerBill(makh)
+                    flag = 0;
+                    savecookies(email , password)
+                    break;
+
+               }
+           }
+        flag = 1   
+     }
+
+     if (flag==1){
+          alert("Tài khoản không tồn tại")
+     }
+
+    
+
+}
 
 
 
@@ -1375,7 +1435,7 @@ function checkLogin(email , password){
                         } 
                    InnerBill(makh)
                     flag = 0;
-                   
+                   savecookies(email , password);
                     break;
 
                }
@@ -1427,6 +1487,7 @@ function Login() {
 
 function Logout() {
      if(confirm('Bạn có thực sự muốn thoát ?')){
+          deletecookies()
           location.href = './index.html'
      }
 
@@ -1940,8 +2001,10 @@ function thanhtoan() {
 function scrollFunction() {
   if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
     document.getElementsByClassName('to-top')[0].style.display = 'flex';
+    document.querySelector(".navbar").style = "position: fixed"
   }else{
        document.getElementsByClassName('to-top')[0].style.display = 'none'
+       document.querySelector(".navbar").style = "position: relative;"
   }
 
  
@@ -2000,7 +2063,40 @@ function LienHe() {
 
      }
  }
+ function savecookies(tk,mk){
+     console.log("luu clound")
+     let list =[{
+          taikhoan: tk,
+          matkhau: mk
+     }]
+     localStorage.setItem("cookies", JSON.stringify(list));
+ }
+ function loadcookies(){
+     var storedCookies = JSON.parse(localStorage.getItem("cookies"))
+     if(storedCookies == null){
+          return
+     }
+     else{
+          checkLogin1(storedCookies[0].taikhoan , storedCookies[0].matkhau )
+     }
+ }
+ function deletecookies(){
+     window.localStorage.removeItem('cookies')
+ }
+ loadcookies();
 
+ document.querySelector(".navbar-menu").addEventListener("click",function(e){
+     console.log(e.srcElement.textContent == "Sản phẩm ")
+     if(e.srcElement.textContent!="Sản phẩm "){
+          e.target.closest(".navbar-menu").classList.remove("active");
+          document.querySelector(".modal").classList.remove("active");
+     }
+     else{
+          console.log("tai tao menu")
+          e.target.closest(".navbar-menu").classList.add("active");
+          document.querySelector(".modal").classList.add("active");
+     }
+ })
 
 
 

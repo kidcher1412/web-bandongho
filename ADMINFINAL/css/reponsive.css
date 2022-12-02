@@ -1,0 +1,30 @@
+@media only screen and (max-width: 1024px){
+    .add-nick-field{
+        width: 100vw;
+    }
+    .add-nick-field .search-container{
+        display: none;
+    }
+}
+@media only screen and (max-width: 740px) {
+    #autohide{
+        display: none;
+    }
+    .search-container{
+        width: 150px;
+    }
+    #userBox,
+    #passBox,
+    #nameBox{
+        width: 90px;
+        /* margin-left: 10px;
+        margin-right: 10px; */
+    }
+    .col-nav-bar2{
+        display: none;
+    }
+    *{
+        padding: 0;
+        margin: 0;
+    }
+}

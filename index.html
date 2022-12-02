@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <img src="./img/favicon-32x32.png" alt="">
+    <!-- <img src="./img/favicon-32x32.png" alt=""> -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,8 +15,9 @@
 <body>
     <div id="nav" class="navbar">
         <div class="navbar-wrapper">
+            <li class="navbar-icon-item openmobile"><a href="#"><i class='bx bx-menu-alt-right menu-icon'></i></a></li> 
             <a onclick="PageHome()" href="#" class="logo">
-                <img src="./img/logo.png" alt="">
+                <img class="logotile" src="./img/logoteach.png" alt="">
             </a>
     
             <div class="navbar-menu mobile-menu">
@@ -42,7 +43,7 @@
                     <spanc class="cart-info" >0</spanc>
                 </li>   
                
-                <li class="navbar-icon-item openmobile"><a href="#"><i class='bx bx-menu-alt-right menu-icon'></i></a></li>   
+                <!-- <li class="navbar-icon-item openmobile"><a href="#"><i class='bx bx-menu-alt-right menu-icon'></i></a></li>    -->
                 <h5 onclick = 'PageCheckOut()'  class="account navbar-icon-item">Chào bạn: <span></span></h5>
                 <a onclick = 'Logout()' class="out-account" href="#"><i class='bx bx-log-out bx-rotate-180  navbar-icon-item ' ></i></a> 
                 <a href="./ADMINFINAL/admin.html" class="navbar-icon-item admin"><i class='bx bx-wrench'></i></a>
@@ -55,7 +56,11 @@
 
     <div id="hero-section" class="hero-section">
         
-             <div class="bgimg slide-item fade" style="background-image: url(./img/1a\(32\).jpg)">
+             <!-- <div class="bgimg slide-item fade" style="background-image: url(./img/1a\(32\).jpg)"> -->
+                <div class="bgimg slide-item fade">
+                    <video playsinline autoplay muted loop>
+                        <source src="./video/Omega Watch Ad - Cinematic B-Roll.mp4" type="video/mp4">
+                      </video>
                  <div class="caption">
                      <h2 class="top-down delay-2">
                         ĐỒNG HỒ ROLEX
@@ -74,14 +79,17 @@
              </div>
  
              
-             <div class="bgimg slide-item fade" style="background-image: url(./img/dong-ho-thoi-trang-rolex-banner.jpg)">
+             <div class="bgimg slide-item fade">
+                <video playsinline autoplay muted loop>
+                    <source src="./video/Premium jewellery product video [demo] wristwatch.mp4" type="video/mp4">
+                  </video>
                 <div class="caption">
                     <h2>
-                        ĐỒNG HỒ ROLEX
+                        Trang Sức Thời Trang Nữ
                     </h2>
 
                     <p>
-                        Câu chuyện của Rolex bắt đầu khi nhà sáng lập Hans Wilsdorf đã tạo ra chiếc đồng hồ đeo tay chống thấm nước đầu tiên - Oyster - và đã phát triển một bộ sưu tập những chiếc đồng hồ đã trở thành biểu tượng của quy trình công nghệ chế tác đồng hồ.
+                         Ngoài giày dép, túi xách, trang sức… thì đồng hồ nữ thời trang cũng là món phụ kiện quen thuộc của các cô nàng hiện đại. Chúng không chỉ đơn thuần là một cỗ máy thời gian mà còn là thứ giúp chị em nâng tầm phong cách thời trang của bản thân. Dưới đây, chúng tôi sẽ điểm danh cho bạn các mẫu đồng hồ thời trang nữ đẹp sang chảnh nhất, cũng như cách chọn lựa và bảo quản đúng chuẩn.
                     </p>
 
                     <a class="btn">
@@ -92,14 +100,17 @@
              </div>
 
              
-             <div class="bgimg slide-item fade" style="background-image: url(./img/Banchay_Longines_banner-1024x427.jpg)">
+             <div class="bgimg slide-item fade">
+                <video playsinline autoplay muted loop>
+                    <source src="./video/Watch ad music example 2 (hip-hop style).mp4" type="video/mp4">
+                  </video>
                 <div class="caption">
                     <h2>
-                        ĐỒNG HỒ ROLEX
+                        Thời  Thượng Theo Thời Đại
                     </h2>
 
                     <p>
-                        Đồng hồ Rolex được thiết kế và chế tạo để trường tồn nhờ bàn tay và khối óc của các thợ chế tác đồng hồ, nhà thiết kế và kỹ sư chuyên biệt mang kỹ năng và kiến thức truyền tải vào từng chiếc đồng hồ Rolex. 
+                        Chất liệu lấp lánh, ánh nhũ và ánh kim thường xuất hiện nhiều trong mùa Thu Đông do các buổi tiệc tùng, lễ lạc cuối năm. Tuy nhiên, ở mùa Xuân Hè 2023 kỳ này thì chất liệu bắt ánh sáng lại xuất hiện xuyên suốt các sàn diễn thời trang. Các nhà thiết kế như đang chứng minh rằng chúng ta không thể sống thiếu những buổi tiệc thân mật và có một bộ cánh hợp trend lại bắt mắt quanh năm là điều cần thiết.
                     </p>
 
                     <a class="btn">
@@ -207,7 +218,7 @@
 
     <section id="best-sale" class="best-sale">
         <div class="container">
-            <div class="section-title" >
+            <div class="section-title" id="danhsachbanchay">
                 <h3>TOP SẢN PHẨM BÁN CHẠY</h3>
                 <div class="title-line"></div>
             </div>
@@ -249,8 +260,8 @@
             </div>
 
              <div class="pagination">
-                 <button>1</button >
-                 <button id="pagination-2" >2</button> 
+                 <a href="#danhsachbanchay"><button>2</button ></a>
+                 <a href="#danhsachbanchay"><button id="pagination-2">1</button ></a>
              </div>
                 
                

@@ -984,7 +984,6 @@ function LoaddetailBill() {
 var bill_arr = JSON.parse(localStorage.getItem('bill'))
 function InnerBill(bill_arr){
     var checkout = document.getElementsByClassName('checkout')[0]
-    
     var detailBill_arr = JSON.parse(localStorage.getItem('detailbill'))
     checkout.innerHTML = `
     <tr  class="checkout-item"> 
@@ -999,6 +998,8 @@ function InnerBill(bill_arr){
     </tr>
     `
     for(let i = 0; i < bill_arr.length; i++){
+         var thongTongTien = Number(bill_arr[i].tongtien)
+         console.log(thongTongTien.toLocaleString("vi-VN", { useGrouping: true }))
          var content = document.createElement('tr')
          content.classList.add('checkout-item')
                    var detail = ''
@@ -1039,7 +1040,7 @@ function InnerBill(bill_arr){
                         </th>
               
                         <th id="bill-total" >
-                                ${bill_arr[i].tongtien} vnđ
+                                ${thongTongTien.toLocaleString("vi-VN", { useGrouping: true })} vnđ
                         </th>
  
                         <th >
@@ -1078,7 +1079,7 @@ function InnerBill(bill_arr){
                         </th>
               
                         <th id="bill-total" >
-                                ${bill_arr[i].tongtien} vnđ
+                                ${thongTongTien.toLocaleString("vi-VN", { useGrouping: true })} vnđ
                         </th>
 
 
